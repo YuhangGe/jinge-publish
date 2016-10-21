@@ -2,17 +2,59 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>jinge</title>
-  <style>
-    body {
+  <base href="/">
+  <title>Demo</title>
+  <style id="splash_screen_style">
+    #splash_screen {
       text-align: center;
-      font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;
+    }
+    #splash_screen p {
+      margin: 15px;
+      font-size: 14px;
+      padding: 0;
     }
   </style>
 </head>
 <body>
-<h1>JINGE DESIGN</h1>
-<p>敬请期待</p>
-<p>to be expected</p>
+
+<root-app>
+<div id="splash_screen">
+  <p>Loading</p>
+</div>
+</root-app>
+
+
+<link rel="stylesheet" href="css/jinge-design-94069d495d.min.css"/>
+
+
+<script src="lib/zone-0.6.26.min.js"></script>
+<script src="lib/Reflect-0.1.8.min.js"></script>
+
+
+<script src="js/loader-78294bf0e3.min.js"></script>
+<script src="js/jinge-design-68c4a181cd.min.js"></script>
+
+<script type="text/javascript">
+(function() {
+  function run() {
+    let $s = document.getElementById('splash_screen_style');
+    $s.parentElement.removeChild($s);
+    $s = document.getElementById('splash_screen');
+    $s.parentElement.removeChild($s);
+    window.__AppBootstrap();
+  }
+  __AssetLoader.load({
+    locale: localStorage.getItem('language') || navigator.language
+  }).then(function() {
+    
+    run();
+    
+  }).catch(function(ex) {
+    console.error(ex);
+  });
+})();
+
+</script>
+
 </body>
 </html>
